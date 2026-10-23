@@ -282,5 +282,4 @@ This is a portfolio implementation. A larger production deployment would normall
 
 ## Author
 
-**Avikumar Patel**  
-MSc Data Science & Analytics
+**Avikumar Patel** 
