@@ -1,0 +1,3870 @@
+{
+  "name": "AI Business Inquiry Automation - Portfolio Template",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Product Inquiry Form",
+        "formDescription": "Submit your product inquiry and our team will get back to you.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Name"
+            },
+            {
+              "fieldLabel": "Email",
+              "fieldType": "email"
+            },
+            {
+              "fieldLabel": "Request",
+              "fieldType": "textarea"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.6,
+      "position": [
+        -432,
+        0
+      ],
+      "id": "4fc7fd35-6a4a-4b7e-a0ab-d4d9c196c4ce",
+      "name": "On form submission"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Inquiries",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $json.Name }}",
+            "Email": "={{ $json.Email }}",
+            "Request": "={{ $json.Request }}",
+            "category": "={{ $json.category }}",
+            "submittedAt": "={{ $json.submittedAt }}",
+            "draftReply": "={{ $json.draftReply }}",
+            "reviewStatus": "={{ $json.reviewStatus }}",
+            "inquiryId": "={{ $json.inquiryId }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Request",
+              "displayName": "Request",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "category",
+              "displayName": "category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "submittedAt",
+              "displayName": "submittedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "draftReply",
+              "displayName": "draftReply",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewStatus",
+              "displayName": "reviewStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "inquiryId",
+              "displayName": "inquiryId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewedAt",
+              "displayName": "reviewedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1520,
+        368
+      ],
+      "id": "11ee0a4b-f8b8-48bf-a5af-a69406c9625f",
+      "name": "Save General Inquiry"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Inquiries",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $json.Name }}",
+            "Email": "={{ $json.Email }}",
+            "Request": "={{ $json.Request }}",
+            "category": "={{ $json.category }}",
+            "submittedAt": "={{ $json.submittedAt }}",
+            "draftReply": "={{ $json.draftReply }}",
+            "reviewStatus": "={{ $json.reviewStatus }}",
+            "inquiryId": "={{ $json.inquiryId }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Request",
+              "displayName": "Request",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "category",
+              "displayName": "category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "submittedAt",
+              "displayName": "submittedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "draftReply",
+              "displayName": "draftReply",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewStatus",
+              "displayName": "reviewStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "inquiryId",
+              "displayName": "inquiryId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewedAt",
+              "displayName": "reviewedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1504,
+        -352
+      ],
+      "id": "95339d14-d3b0-4f3c-a525-540079db640b",
+      "name": "Save Sales Inquiry"
+    },
+    {
+      "parameters": {
+        "inputText": "={{ $json.Request }}",
+        "categories": {
+          "categories": [
+            {
+              "category": "Sales - Quote Request",
+              "description": "Customer wants pricing, quotations, discounts, purchasing information, bulk orders, or product availability."
+            },
+            {
+              "category": "Technical Support",
+              "description": "Customer needs help with installation, troubleshooting, malfunctioning products, technical errors, repairs, or compatibility issues."
+            },
+            {
+              "category": "General Inquiry",
+              "description": "Customer requests product catalogues, general company information, specifications, documentation, or other non-sales and non-support information."
+            }
+          ]
+        },
+        "options": {
+          "multiClass": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "typeVersion": 1.1,
+      "position": [
+        144,
+        -16
+      ],
+      "id": "1149ae0b-2146-4f64-90e0-081e2c887794",
+      "name": "Text Classifier"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.2,
+      "position": [
+        144,
+        176
+      ],
+      "id": "1794251b-f2f8-4c8f-ac6e-caa7c010b9a8",
+      "name": "Google Gemini Chat Model"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e42599b8-6016-4398-bc88-6a3e90c038bb",
+              "name": "category",
+              "value": "Technical Support",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        560,
+        0
+      ],
+      "id": "a86b1555-a8e6-4656-bad8-3de3292c5770",
+      "name": "Set Technical Support Category"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c9ba0872-dd43-4777-ae84-86cb26b2361c",
+              "name": "category",
+              "value": "Sales - Quote Request",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        592,
+        -352
+      ],
+      "id": "77a002ec-5075-4722-b4de-200b80e7d3e1",
+      "name": "Set Sales Category"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e42599b8-6016-4398-bc88-6a3e90c038bb",
+              "name": "category",
+              "value": "General Inquiry",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        560,
+        368
+      ],
+      "id": "b2eb97e8-877d-49f9-b8a8-9ec179edfffb",
+      "name": "Set General Inquiry Category"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ `You are a customer service representative at an industrial automation company.\n\nWrite a short, natural, human tone, professional email reply to the customer's sales inquiry.\n\nCustomer name: ${$json.Name}\nCustomer inquiry: ${$json.Request}\n\nInstructions:\n- Address the customer by first name.\n- Thank them for reaching out.\n- Acknowledge their specific inquiry.\n- Never invent prices, stock availability, delivery dates, product specifications, or company policies.\n- Explain that the sales team will review their request and follow up with the relevant information.\n- Keep the response friendly, clear, and under 100 words.\n- End with \"Best regards, Sales Team\".\n- Return only the email body, without a subject line or commentary.` }}",
+        "messages": {
+          "messageValues": []
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        880,
+        -352
+      ],
+      "id": "02040d64-5f39-4006-97f2-3689a449cd1a",
+      "name": "Generate Sales Email Draft"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.2,
+      "position": [
+        880,
+        -160
+      ],
+      "id": "b2050038-1d9f-4e1e-9877-8aceaddb982b",
+      "name": "Google Gemini Chat Model1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6b506846-00bc-45e3-8106-095c6d5535e4",
+              "name": "Name",
+              "value": "={{ $('Set Sales Category').item.json.Name }}",
+              "type": "string"
+            },
+            {
+              "id": "42a9a494-ab96-41ff-95cd-2f5f51a69eeb",
+              "name": "Email",
+              "value": "={{ $('Set Sales Category').item.json.Email }}",
+              "type": "string"
+            },
+            {
+              "id": "90abae60-02e0-4343-9bd0-5fe47eac81bf",
+              "name": "Request",
+              "value": "={{ $('Set Sales Category').item.json.Request }}",
+              "type": "string"
+            },
+            {
+              "id": "6a4b8c80-2efa-42d8-b983-0a284f834819",
+              "name": "category",
+              "value": "={{ $('Set Sales Category').item.json.category }}",
+              "type": "string"
+            },
+            {
+              "id": "070f1f1c-b66f-4162-a966-a9bef6047198",
+              "name": "submittedAt",
+              "value": "={{ $('Set Sales Category').item.json.submittedAt }}",
+              "type": "string"
+            },
+            {
+              "id": "e00e9caa-8111-4d97-a25a-6a03d839602e",
+              "name": "draftReply",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "57181d4b-21dd-49ab-a788-296dc5fc5b8d",
+              "name": "reviewStatus",
+              "value": "Pending Review",
+              "type": "string"
+            },
+            {
+              "id": "0ec4d6ac-7941-4ae0-871a-84ef5ae1ca9b",
+              "name": "inquiryId",
+              "value": "={{ $('Assign Inquiry ID').first().json.inquiryId }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        1232,
+        -352
+      ],
+      "id": "ef122409-2427-42db-959d-9efcf535c5f1",
+      "name": "Prepare Sales Review Record"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ `You are a technical support representative at an industrial automation company.\n\nWrite a short, natural, human-tone, helpful email reply to this customer.\n\nCustomer name: ${$json.Name}\nCustomer inquiry: ${$json.Request}\n\nInstructions:\n- Address the customer by first name.\n- Thank them for contacting support.\n- Acknowledge their specific technical issue.\n- Show empathy without sounding overly formal.\n- Do not invent technical solutions, specifications, warranty terms, or troubleshooting results.\n- Explain that the technical team can review the issue.\n- Ask for the product model number and relevant error details if helpful.\n- Do not claim the issue has already been escalated.\n- Keep the email under 120 words.\n- End with \"Best regards, Technical Support Team\".\n- Return only the email body.` }}",
+        "messages": {
+          "messageValues": []
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        864,
+        0
+      ],
+      "id": "4d2fb91c-3bce-4e29-b388-69ca3d59e0ab",
+      "name": "Generate Technical Support Email Draft"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.2,
+      "position": [
+        864,
+        208
+      ],
+      "id": "6e43b322-178a-4d8d-ab0a-71b8bb6b1876",
+      "name": "Google Gemini Chat Model2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6b506846-00bc-45e3-8106-095c6d5535e4",
+              "name": "Name",
+              "value": "={{ $('Set Technical Support Category').item.json.Name }}",
+              "type": "string"
+            },
+            {
+              "id": "42a9a494-ab96-41ff-95cd-2f5f51a69eeb",
+              "name": "Email",
+              "value": "={{ $('Set Technical Support Category').item.json.Email }}",
+              "type": "string"
+            },
+            {
+              "id": "90abae60-02e0-4343-9bd0-5fe47eac81bf",
+              "name": "Request",
+              "value": "={{ $('Set Technical Support Category').item.json.Request }}",
+              "type": "string"
+            },
+            {
+              "id": "6a4b8c80-2efa-42d8-b983-0a284f834819",
+              "name": "category",
+              "value": "={{ $('Set Technical Support Category').item.json.category }}",
+              "type": "string"
+            },
+            {
+              "id": "070f1f1c-b66f-4162-a966-a9bef6047198",
+              "name": "submittedAt",
+              "value": "={{ $('Set Technical Support Category').item.json.submittedAt }}",
+              "type": "string"
+            },
+            {
+              "id": "e00e9caa-8111-4d97-a25a-6a03d839602e",
+              "name": "draftReply",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "57181d4b-21dd-49ab-a788-296dc5fc5b8d",
+              "name": "reviewStatus",
+              "value": "Pending Review",
+              "type": "string"
+            },
+            {
+              "id": "13452972-a771-4a07-b705-4ce94dfb5ab4",
+              "name": "inquiryId",
+              "value": "={{ $('Assign Inquiry ID').first().json.inquiryId }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        1232,
+        0
+      ],
+      "id": "19a13364-1e68-4899-b927-81155c735bae",
+      "name": "Prepare Technical Support Review Record"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.2,
+      "position": [
+        864,
+        560
+      ],
+      "id": "a7f3ae81-acf5-4d50-b42c-97bc1f2a2b8d",
+      "name": "Google Gemini Chat Model3"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ `You are a customer service representative at an industrial automation company.\n\nWrite a short, natural, professional email reply to a customer's general inquiry.\n\nCustomer name: ${$json.Name}\nCustomer inquiry: ${$json.Request}\n\nInstructions:\n- Address the customer by first name.\n- Thank them for contacting the company.\n- Acknowledge their specific question or request.\n- Use friendly, straightforward language.\n- Do not invent product details, specifications, catalogue links, pricing, availability, or company policies.\n- If additional information is required, explain that the appropriate team can review their request.\n- Do not claim anything has already been sent, reviewed, or forwarded.\n- Keep the response under 100 words.\n- End with \"Best regards, Customer Service Team\".\n- Return only the email body.` }}",
+        "messages": {
+          "messageValues": []
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        864,
+        368
+      ],
+      "id": "4309d8ba-2759-41e6-807e-033e2ec95f08",
+      "name": "Generate General Inquiry Email Draft"
+    },
+    {
+      "parameters": {
+        "operation": "sendAndWait",
+        "sendTo": "reviewer@example.com",
+        "subject": "Sales Email Draft - Approval Required",
+        "message": "={{ `SALES EMAIL DRAFT — APPROVAL REQUIRED\n\nCustomer: ${$('Prepare Sales Review Record').item.json.Name}\nCustomer Email: ${$('Prepare Sales Review Record').item.json.Email}\nSubmitted At: ${$('Prepare Sales Review Record').item.json.submittedAt}\n\nORIGINAL CUSTOMER INQUIRY:\n\n${$('Prepare Sales Review Record').item.json.Request}\n\nPROPOSED AI-GENERATED RESPONSE:\n\n${$('Prepare Sales Review Record').item.json.draftReply}\n\nPlease review the proposed response for accuracy, tone, and completeness.\n\nAPPROVE: The draft is acceptable for further processing.\n\nREJECT: The draft needs changes.\n\nThis is an internal approval request. No customer email has been sent.` }}",
+        "approvalOptions": {
+          "values": {
+            "approvalType": "double",
+            "disapproveLabel": "Reject"
+          }
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1728,
+        -352
+      ],
+      "id": "08886a07-affb-4f60-935f-8cb4267266ee",
+      "name": "Request Sales Draft Approval"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Inquiries",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [
+            "inquiryId"
+          ],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Request",
+              "displayName": "Request",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "category",
+              "displayName": "category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "submittedAt",
+              "displayName": "submittedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "draftReply",
+              "displayName": "draftReply",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewStatus",
+              "displayName": "reviewStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "inquiryId",
+              "displayName": "inquiryId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewedAt",
+              "displayName": "reviewedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2400,
+        -400
+      ],
+      "id": "b09ac679-d6df-44fd-9153-4b904a3c85b0",
+      "name": "Update Sales Approval"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Inquiries",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [
+            "inquiryId"
+          ],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Request",
+              "displayName": "Request",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "category",
+              "displayName": "category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "submittedAt",
+              "displayName": "submittedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "draftReply",
+              "displayName": "draftReply",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewStatus",
+              "displayName": "reviewStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "inquiryId",
+              "displayName": "inquiryId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewedAt",
+              "displayName": "reviewedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2400,
+        -256
+      ],
+      "id": "26d39219-ec71-4504-85bf-098e383c4ffd",
+      "name": "Update Sales Rejection"
+    },
+    {
+      "parameters": {
+        "operation": "sendAndWait",
+        "sendTo": "reviewer@example.com",
+        "subject": "Technical Support Draft - Approval Required",
+        "message": "={{ `TECHNICAL SUPPORT DRAFT - APPROVAL REQUIRED\n\nCustomer: ${$('Prepare Technical Support Review Record').first().json.Name}\nCustomer Email: ${$('Prepare Technical Support Review Record').first().json.Email}\nSubmitted At: ${$('Prepare Technical Support Review Record').first().json.submittedAt}\n\nORIGINAL CUSTOMER INQUIRY:\n\n${$('Prepare Technical Support Review Record').first().json.Request}\n\nPROPOSED AI-GENERATED RESPONSE:\n\n${$('Prepare Technical Support Review Record').first().json.draftReply}\n\nPlease review the proposed response for accuracy, tone, and completeness.\n\nAPPROVE: The draft is acceptable for further processing.\n\nREJECT: The draft needs changes.\n\nThis is an internal approval request. No customer email has been sent.` }}",
+        "approvalOptions": {
+          "values": {
+            "approvalType": "double",
+            "disapproveLabel": "Reject"
+          }
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1744,
+        0
+      ],
+      "id": "8078a6e0-62d2-49f8-aa9f-8c01e062c0e7",
+      "name": "Request Technical Support Draft Approval"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "12541844-3f32-42ad-8064-cd1a8785f30e",
+              "leftValue": "={{ $json.data.approved }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1952,
+        0
+      ],
+      "id": "c472da16-dca9-48f4-a1c6-6a1ee33db516",
+      "name": "Check Technical Support Approval"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "633d1b53-6b8f-4e3a-b037-1931bd027e7b",
+              "name": "inquiryId",
+              "value": "={{ $('Assign Inquiry ID').first().json.inquiryId }}",
+              "type": "string"
+            },
+            {
+              "id": "11149368-f07b-4a9c-87e3-0512445f9715",
+              "name": "reviewStatus",
+              "value": "Approved",
+              "type": "string"
+            },
+            {
+              "id": "79a4c3b3-01f8-4274-96b9-477f028099bd",
+              "name": "reviewedAt",
+              "value": "={{ $json.data.respondedAt }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        2192,
+        -64
+      ],
+      "id": "4ec13448-ff18-4d76-89cf-2cff584a1ae0",
+      "name": "Prepare Support Approved Update"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a4bc0443-27ad-452f-9156-e4e06418c62c",
+              "name": "inquiryId",
+              "value": "={{ $('Assign Inquiry ID').first().json.inquiryId }}",
+              "type": "string"
+            },
+            {
+              "id": "a21997da-5fde-4fe7-b53b-378beeb87b6d",
+              "name": "reviewStatus",
+              "value": "Rejected",
+              "type": "string"
+            },
+            {
+              "id": "07ba80a9-55ce-4dcf-8cb2-939e3959f911",
+              "name": "reviewedAt",
+              "value": "={{ $json.data.respondedAt }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        2192,
+        96
+      ],
+      "id": "dc8f83cc-2b3a-48d5-ad2b-979393fcc0f1",
+      "name": "Prepare Support Rejected Update"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Inquiries",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [
+            "inquiryId"
+          ],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Request",
+              "displayName": "Request",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "category",
+              "displayName": "category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "submittedAt",
+              "displayName": "submittedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "draftReply",
+              "displayName": "draftReply",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewStatus",
+              "displayName": "reviewStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "inquiryId",
+              "displayName": "inquiryId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewedAt",
+              "displayName": "reviewedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "deliveryStatus",
+              "displayName": "deliveryStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "sentAt",
+              "displayName": "sentAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2416,
+        -64
+      ],
+      "id": "fd989f81-8229-462f-a62d-3efb0e7e5e64",
+      "name": "Update Support Approval"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Inquiries",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [
+            "inquiryId"
+          ],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Request",
+              "displayName": "Request",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "category",
+              "displayName": "category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "submittedAt",
+              "displayName": "submittedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "draftReply",
+              "displayName": "draftReply",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewStatus",
+              "displayName": "reviewStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "inquiryId",
+              "displayName": "inquiryId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewedAt",
+              "displayName": "reviewedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2416,
+        96
+      ],
+      "id": "256e5b1c-5736-44a3-8d64-1f0381b60392",
+      "name": "Update Support Rejection"
+    },
+    {
+      "parameters": {
+        "operation": "sendAndWait",
+        "sendTo": "reviewer@example.com",
+        "subject": "General Inquiry Draft - Approval Required",
+        "message": "={{ `GENERAL INQUIRY DRAFT - APPROVAL REQUIRED\n\nCustomer: ${$('Prepare General Inquiry Review Record').first().json.Name}\nCustomer Email: ${$('Prepare General Inquiry Review Record').first().json.Email}\nSubmitted At: ${$('Prepare General Inquiry Review Record').first().json.submittedAt}\n\nORIGINAL CUSTOMER INQUIRY:\n\n${$('Prepare General Inquiry Review Record').first().json.Request}\n\nPROPOSED AI-GENERATED RESPONSE:\n\n${$('Prepare General Inquiry Review Record').first().json.draftReply}\n\nPlease review the proposed response for accuracy, tone, and completeness.\n\nAPPROVE: The draft is acceptable for further processing.\n\nREJECT: The draft needs changes.\n\nThis is an internal approval request. No customer email has been sent.` }}",
+        "approvalOptions": {
+          "values": {
+            "approvalType": "double",
+            "disapproveLabel": "Reject"
+          }
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1744,
+        368
+      ],
+      "id": "52b3a07a-f7c7-4fbb-aa59-cf73e7a79a4a",
+      "name": "Request General Inquiry Draft Approval"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "12541844-3f32-42ad-8064-cd1a8785f30e",
+              "leftValue": "={{ $json.data.approved }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1936,
+        368
+      ],
+      "id": "6b2c270a-fbf4-4767-a110-46a8a5a99ff7",
+      "name": "Check General Inquiry Approval"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9687e110-b0a5-4bb6-bf67-ddf9bac7db3c",
+              "name": "inquiryId",
+              "value": "={{ $('Assign Inquiry ID').first().json.inquiryId }}",
+              "type": "string"
+            },
+            {
+              "id": "d4ca4dd6-8da1-430b-a167-c6311a044dc9",
+              "name": "reviewStatus",
+              "value": "Approved",
+              "type": "string"
+            },
+            {
+              "id": "0bb328c8-a3d1-4d08-8d7a-465f92759ade",
+              "name": "reviewedAt",
+              "value": "={{ $json.data.respondedAt }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        2160,
+        272
+      ],
+      "id": "a43dc866-d726-434f-94e7-c236f5ea250b",
+      "name": "Prepare General Approved Update"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f4adb904-8fe0-4578-8c3f-8eb795e31a90",
+              "name": "inquiryId",
+              "value": "={{ $('Assign Inquiry ID').first().json.inquiryId }}",
+              "type": "string"
+            },
+            {
+              "id": "d0983c9a-3283-4f65-a7dd-1c1b645633c5",
+              "name": "reviewStatus",
+              "value": "Rejected",
+              "type": "string"
+            },
+            {
+              "id": "ff44210c-b4f0-4ce3-8fff-9063b37997b3",
+              "name": "reviewedAt",
+              "value": "={{ $json.data.respondedAt }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        2160,
+        464
+      ],
+      "id": "da72ef65-0d35-4040-be4d-c6979038084a",
+      "name": "Prepare General Rejected Update"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Inquiries",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [
+            "inquiryId"
+          ],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Request",
+              "displayName": "Request",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "category",
+              "displayName": "category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "submittedAt",
+              "displayName": "submittedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "draftReply",
+              "displayName": "draftReply",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewStatus",
+              "displayName": "reviewStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "inquiryId",
+              "displayName": "inquiryId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewedAt",
+              "displayName": "reviewedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2400,
+        272
+      ],
+      "id": "75e6e54a-7d08-4fc5-81cf-c4c9695b157a",
+      "name": "Update General Approval"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Inquiries",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [
+            "inquiryId"
+          ],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Request",
+              "displayName": "Request",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "category",
+              "displayName": "category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "submittedAt",
+              "displayName": "submittedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "draftReply",
+              "displayName": "draftReply",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewStatus",
+              "displayName": "reviewStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "inquiryId",
+              "displayName": "inquiryId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewedAt",
+              "displayName": "reviewedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2384,
+        464
+      ],
+      "id": "30e048bd-70f0-438b-ab0b-a6b0a9e31bab",
+      "name": "Update General Rejection"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6b506846-00bc-45e3-8106-095c6d5535e4",
+              "name": "Name",
+              "value": "={{ $('Set General Inquiry Category').item.json.Name }}",
+              "type": "string"
+            },
+            {
+              "id": "42a9a494-ab96-41ff-95cd-2f5f51a69eeb",
+              "name": "Email",
+              "value": "={{ $('Set General Inquiry Category').item.json.Email }}",
+              "type": "string"
+            },
+            {
+              "id": "90abae60-02e0-4343-9bd0-5fe47eac81bf",
+              "name": "Request",
+              "value": "={{ $('Set General Inquiry Category').item.json.Request }}",
+              "type": "string"
+            },
+            {
+              "id": "6a4b8c80-2efa-42d8-b983-0a284f834819",
+              "name": "category",
+              "value": "={{ $('Set General Inquiry Category').item.json.category }}",
+              "type": "string"
+            },
+            {
+              "id": "070f1f1c-b66f-4162-a966-a9bef6047198",
+              "name": "submittedAt",
+              "value": "={{ $('Set General Inquiry Category').item.json.submittedAt }}",
+              "type": "string"
+            },
+            {
+              "id": "e00e9caa-8111-4d97-a25a-6a03d839602e",
+              "name": "draftReply",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "57181d4b-21dd-49ab-a788-296dc5fc5b8d",
+              "name": "reviewStatus",
+              "value": "Pending Review",
+              "type": "string"
+            },
+            {
+              "id": "47e16b97-cf80-4fad-bdbe-b3812a1453cd",
+              "name": "inquiryId",
+              "value": "={{ $('Assign Inquiry ID').first().json.inquiryId }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        1248,
+        368
+      ],
+      "id": "57851737-22e4-4c91-8b54-795efd4bf32d",
+      "name": "Prepare General Inquiry Review Record"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Inquiries",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $json.Name }}",
+            "Email": "={{ $json.Email }}",
+            "Request": "={{ $json.Request }}",
+            "category": "={{ $json.category }}",
+            "submittedAt": "={{ $json.submittedAt }}",
+            "draftReply": "={{ $json.draftReply }}",
+            "reviewStatus": "={{ $json.reviewStatus }}",
+            "inquiryId": "={{ $json.inquiryId }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Request",
+              "displayName": "Request",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "category",
+              "displayName": "category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "submittedAt",
+              "displayName": "submittedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "draftReply",
+              "displayName": "draftReply",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewStatus",
+              "displayName": "reviewStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "inquiryId",
+              "displayName": "inquiryId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewedAt",
+              "displayName": "reviewedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1504,
+        0
+      ],
+      "id": "f4189223-5727-408a-9137-92050121e4c0",
+      "name": "Save Technical Support"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "12541844-3f32-42ad-8064-cd1a8785f30e",
+              "leftValue": "={{ $json.data.approved }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1952,
+        -352
+      ],
+      "id": "422688a2-3f10-4f48-abc9-ba8280cc9d1e",
+      "name": "Check Sales Approval"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "633d1b53-6b8f-4e3a-b037-1931bd027e7b",
+              "name": "inquiryId",
+              "value": "={{ $('Assign Inquiry ID').first().json.inquiryId }}",
+              "type": "string"
+            },
+            {
+              "id": "11149368-f07b-4a9c-87e3-0512445f9715",
+              "name": "reviewStatus",
+              "value": "Approved",
+              "type": "string"
+            },
+            {
+              "id": "13fc27b5-7f60-436e-b626-20b0355595e4",
+              "name": "reviewedAt",
+              "value": "={{ $json.data.respondedAt }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        2176,
+        -400
+      ],
+      "id": "cbf4c2f2-f4a4-4d4e-8a4a-2c75d9c484aa",
+      "name": "Prepare Sales Approved Update"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "82703725-1caf-41ba-aec4-a3b37e94b572",
+              "name": "inquiryId",
+              "value": "={{ $('Assign Inquiry ID').first().json.inquiryId }}",
+              "type": "string"
+            },
+            {
+              "id": "db6ec6e1-5d1b-41d3-83c2-703a444494c6",
+              "name": "reviewStatus",
+              "value": "Rejected",
+              "type": "string"
+            },
+            {
+              "id": "0eba6fdf-8878-4175-aac4-874d304938c5",
+              "name": "reviewedAt",
+              "value": "={{ $json.data.respondedAt }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        2176,
+        -256
+      ],
+      "id": "43bddbb2-4052-4bdc-ab21-7b3ad8291115",
+      "name": "Prepare Sales Rejected Update"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "63d8b753-a0c6-49ce-97b4-555f918cea7f",
+              "name": "inquiryId",
+              "value": "={{ 'INQ-' + $execution.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        -128,
+        0
+      ],
+      "id": "0729a5c1-25e3-4945-abee-664f2043b27b",
+      "name": "Assign Inquiry ID"
+    },
+    {
+      "parameters": {
+        "sendTo": "test-recipient@example.com",
+        "subject": "Response to your sales inquiry",
+        "message": "={{ $('Prepare Sales Review Record').first().json.draftReply }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        2624,
+        -400
+      ],
+      "id": "cb65e3e7-4e67-43cd-bbc7-f96665f5b37a",
+      "name": "Send Approved Sales Email",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6e7b7102-9ba3-4ae1-a4b0-1d5129124fc3",
+              "name": "inquiryId",
+              "value": "={{ $('Assign Inquiry ID').first().json.inquiryId }}",
+              "type": "string"
+            },
+            {
+              "id": "b8b68256-4b76-4083-a677-6f908a5aa9fd",
+              "name": "deliveryStatus",
+              "value": "Sent",
+              "type": "string"
+            },
+            {
+              "id": "b1082ce0-d9f6-4b40-9531-98d4f0513e2a",
+              "name": "sentAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        2848,
+        -528
+      ],
+      "id": "684bad56-4228-4937-b8f3-f59f23356025",
+      "name": "Prepare Sales Delivery Update"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Inquiries",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "inquiryId": "={{ $json.inquiryId }}",
+            "deliveryStatus": "={{ $json.deliveryStatus }}",
+            "sentAt": "={{ $json.sentAt }}"
+          },
+          "matchingColumns": [
+            "inquiryId"
+          ],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Request",
+              "displayName": "Request",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "category",
+              "displayName": "category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "submittedAt",
+              "displayName": "submittedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "draftReply",
+              "displayName": "draftReply",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewStatus",
+              "displayName": "reviewStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "inquiryId",
+              "displayName": "inquiryId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewedAt",
+              "displayName": "reviewedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "deliveryStatus",
+              "displayName": "deliveryStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "sentAt",
+              "displayName": "sentAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3056,
+        -528
+      ],
+      "id": "9a5a8afd-f0c1-4a5d-9b4f-2aa2730d3303",
+      "name": "Update Sales Delivery"
+    },
+    {
+      "parameters": {
+        "sendTo": "test-recipient@example.com",
+        "subject": "Response to your Technical Support inquiry",
+        "message": "={{ $('Prepare Technical Support Review Record').first().json.draftReply }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        2608,
+        -64
+      ],
+      "id": "de59cfc6-efbc-411a-b607-aee82bcb396e",
+      "name": "Send Approved Technical Support Email",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6e7b7102-9ba3-4ae1-a4b0-1d5129124fc3",
+              "name": "inquiryId",
+              "value": "={{ $('Assign Inquiry ID').first().json.inquiryId }}",
+              "type": "string"
+            },
+            {
+              "id": "b8b68256-4b76-4083-a677-6f908a5aa9fd",
+              "name": "deliveryStatus",
+              "value": "Sent",
+              "type": "string"
+            },
+            {
+              "id": "b1082ce0-d9f6-4b40-9531-98d4f0513e2a",
+              "name": "sentAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        2800,
+        -160
+      ],
+      "id": "aaae2afd-a895-4d61-94be-d8559e51c3ca",
+      "name": "Prepare Support Delivery Update"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Inquiries",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "inquiryId": "={{ $json.inquiryId }}",
+            "deliveryStatus": "={{ $json.deliveryStatus }}",
+            "sentAt": "={{ $json.sentAt }}"
+          },
+          "matchingColumns": [
+            "inquiryId"
+          ],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Request",
+              "displayName": "Request",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "category",
+              "displayName": "category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "submittedAt",
+              "displayName": "submittedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "draftReply",
+              "displayName": "draftReply",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewStatus",
+              "displayName": "reviewStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "inquiryId",
+              "displayName": "inquiryId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewedAt",
+              "displayName": "reviewedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "deliveryStatus",
+              "displayName": "deliveryStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "sentAt",
+              "displayName": "sentAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3040,
+        -160
+      ],
+      "id": "5f35a34c-b65e-45db-9104-0527b953503a",
+      "name": "Update Support Delivery"
+    },
+    {
+      "parameters": {
+        "sendTo": "test-recipient@example.com",
+        "subject": "Response to your General Inquiry",
+        "message": "={{ $('Prepare General Inquiry Review Record').first().json.draftReply }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        2608,
+        272
+      ],
+      "id": "21de7286-4663-4ee5-a1eb-42639a175693",
+      "name": "Send Approved General Inquiry Email",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6e7b7102-9ba3-4ae1-a4b0-1d5129124fc3",
+              "name": "inquiryId",
+              "value": "={{ $('Assign Inquiry ID').first().json.inquiryId }}",
+              "type": "string"
+            },
+            {
+              "id": "b8b68256-4b76-4083-a677-6f908a5aa9fd",
+              "name": "deliveryStatus",
+              "value": "Sent",
+              "type": "string"
+            },
+            {
+              "id": "b1082ce0-d9f6-4b40-9531-98d4f0513e2a",
+              "name": "sentAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        2832,
+        224
+      ],
+      "id": "49f1bbb0-acb3-4239-b153-46bed34158fb",
+      "name": "Prepare General Delivery Update"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Inquiries",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "inquiryId": "={{ $json.inquiryId }}",
+            "deliveryStatus": "={{ $json.deliveryStatus }}",
+            "sentAt": "={{ $json.sentAt }}"
+          },
+          "matchingColumns": [
+            "inquiryId"
+          ],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Request",
+              "displayName": "Request",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "category",
+              "displayName": "category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "submittedAt",
+              "displayName": "submittedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "draftReply",
+              "displayName": "draftReply",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewStatus",
+              "displayName": "reviewStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "inquiryId",
+              "displayName": "inquiryId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewedAt",
+              "displayName": "reviewedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "deliveryStatus",
+              "displayName": "deliveryStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "sentAt",
+              "displayName": "sentAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3024,
+        224
+      ],
+      "id": "4853256d-fb42-4e9c-a6cd-a24038b361ea",
+      "name": "Update General Delivery"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "088c54f5-6ad5-475b-9a0d-ba7c6bde6693",
+              "name": "inquiryId",
+              "value": "={{ $('Assign Inquiry ID').first().json.inquiryId }}",
+              "type": "string"
+            },
+            {
+              "id": "bb33eddf-0a92-44af-8473-77a93fa80da0",
+              "name": "deliveryStatus",
+              "value": "Failed",
+              "type": "string"
+            },
+            {
+              "id": "b141c300-0222-4ea6-a538-9cb7dae218d1",
+              "name": "deliveryError",
+              "value": "={{ $json.error?.message || $json.message || 'Email delivery failed' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        2848,
+        -352
+      ],
+      "id": "cc41ce1b-a837-48d6-99df-0d84f38f6ab5",
+      "name": "Prepare Sales Delivery Failure"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1f6c8ae4-8294-4eb7-846b-9e6a142233cd",
+              "name": "inquiryId",
+              "value": "={{ $('Assign Inquiry ID').first().json.inquiryId }}",
+              "type": "string"
+            },
+            {
+              "id": "6ee00e23-b441-4c11-a63b-e53183ac1891",
+              "name": "deliveryStatus",
+              "value": "Failed",
+              "type": "string"
+            },
+            {
+              "id": "fc8bf8ae-95fe-4237-9622-d8e397b612c7",
+              "name": "deliveryError",
+              "value": "={{ $json.error?.message || $json.message || 'Email delivery failed' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        2800,
+        32
+      ],
+      "id": "625cdd1e-115b-404c-ba65-260072c79207",
+      "name": "Prepare Support Delivery Failure"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "49ce7a26-7248-4349-b68c-3cf1969e0d51",
+              "name": "inquiryId",
+              "value": "={{ $('Assign Inquiry ID').first().json.inquiryId }}",
+              "type": "string"
+            },
+            {
+              "id": "e0f1b54b-1e77-44ec-b029-89dbd95b32b9",
+              "name": "deliveryStatus",
+              "value": "Failed",
+              "type": "string"
+            },
+            {
+              "id": "0dee745c-072b-48a3-914a-3eefda58ef5b",
+              "name": "deliveryError",
+              "value": "={{ $json.error?.message || $json.message || 'Email delivery failed' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        2848,
+        432
+      ],
+      "id": "b72a07f3-9c84-4dbb-837d-b2e421f79978",
+      "name": "Prepare General Delivery Failure"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Inquiries",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "inquiryId": "={{ $json.inquiryId }}",
+            "deliveryStatus": "={{ $json.deliveryStatus }}",
+            "deliveryError": "={{ $json.deliveryError }}"
+          },
+          "matchingColumns": [
+            "inquiryId"
+          ],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Request",
+              "displayName": "Request",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "category",
+              "displayName": "category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "submittedAt",
+              "displayName": "submittedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "draftReply",
+              "displayName": "draftReply",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewStatus",
+              "displayName": "reviewStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "inquiryId",
+              "displayName": "inquiryId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewedAt",
+              "displayName": "reviewedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "deliveryStatus",
+              "displayName": "deliveryStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "sentAt",
+              "displayName": "sentAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "deliveryError",
+              "displayName": "deliveryError",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3056,
+        -352
+      ],
+      "id": "e0f3af61-31e5-4e28-a5e7-40a70b570d96",
+      "name": "Update Sales Delivery Failure"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Inquiries",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "inquiryId": "={{ $json.inquiryId }}",
+            "deliveryStatus": "={{ $json.deliveryStatus }}",
+            "deliveryError": "={{ $json.deliveryError }}"
+          },
+          "matchingColumns": [
+            "inquiryId"
+          ],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Request",
+              "displayName": "Request",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "category",
+              "displayName": "category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "submittedAt",
+              "displayName": "submittedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "draftReply",
+              "displayName": "draftReply",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewStatus",
+              "displayName": "reviewStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "inquiryId",
+              "displayName": "inquiryId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewedAt",
+              "displayName": "reviewedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "deliveryStatus",
+              "displayName": "deliveryStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "sentAt",
+              "displayName": "sentAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "deliveryError",
+              "displayName": "deliveryError",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3040,
+        32
+      ],
+      "id": "3be42946-d8f9-40b3-9c9b-c8809e33fe32",
+      "name": "Update Support Delivery Failure"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Inquiries",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "inquiryId": "={{ $json.inquiryId }}",
+            "deliveryStatus": "={{ $json.deliveryStatus }}",
+            "deliveryError": "={{ $json.deliveryError }}"
+          },
+          "matchingColumns": [
+            "inquiryId"
+          ],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Request",
+              "displayName": "Request",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "category",
+              "displayName": "category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "submittedAt",
+              "displayName": "submittedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "draftReply",
+              "displayName": "draftReply",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewStatus",
+              "displayName": "reviewStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "inquiryId",
+              "displayName": "inquiryId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewedAt",
+              "displayName": "reviewedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "deliveryStatus",
+              "displayName": "deliveryStatus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "sentAt",
+              "displayName": "sentAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "deliveryError",
+              "displayName": "deliveryError",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3024,
+        432
+      ],
+      "id": "3955da88-3775-4197-9f13-9593a3c1801c",
+      "name": "Update General Delivery Failure"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Assign Inquiry ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Text Classifier",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Text Classifier": {
+      "main": [
+        [
+          {
+            "node": "Set Sales Category",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Technical Support Category",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set General Inquiry Category",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Technical Support Category": {
+      "main": [
+        [
+          {
+            "node": "Generate Technical Support Email Draft",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Sales Category": {
+      "main": [
+        [
+          {
+            "node": "Generate Sales Email Draft",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set General Inquiry Category": {
+      "main": [
+        [
+          {
+            "node": "Generate General Inquiry Email Draft",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Generate Sales Email Draft",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Sales Email Draft": {
+      "main": [
+        [
+          {
+            "node": "Prepare Sales Review Record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Sales Review Record": {
+      "main": [
+        [
+          {
+            "node": "Save Sales Inquiry",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Generate Technical Support Email Draft",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Technical Support Email Draft": {
+      "main": [
+        [
+          {
+            "node": "Prepare Technical Support Review Record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Technical Support Review Record": {
+      "main": [
+        [
+          {
+            "node": "Save Technical Support",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Generate General Inquiry Email Draft",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate General Inquiry Email Draft": {
+      "main": [
+        [
+          {
+            "node": "Prepare General Inquiry Review Record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Sales Inquiry": {
+      "main": [
+        [
+          {
+            "node": "Request Sales Draft Approval",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Request Sales Draft Approval": {
+      "main": [
+        [
+          {
+            "node": "Check Sales Approval",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Technical Support Approval": {
+      "main": [
+        [
+          {
+            "node": "Prepare Support Approved Update",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Support Rejected Update",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Support Approved Update": {
+      "main": [
+        [
+          {
+            "node": "Update Support Approval",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Support Rejected Update": {
+      "main": [
+        [
+          {
+            "node": "Update Support Rejection",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save General Inquiry": {
+      "main": [
+        [
+          {
+            "node": "Request General Inquiry Draft Approval",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Request General Inquiry Draft Approval": {
+      "main": [
+        [
+          {
+            "node": "Check General Inquiry Approval",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check General Inquiry Approval": {
+      "main": [
+        [
+          {
+            "node": "Prepare General Approved Update",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare General Rejected Update",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare General Approved Update": {
+      "main": [
+        [
+          {
+            "node": "Update General Approval",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare General Rejected Update": {
+      "main": [
+        [
+          {
+            "node": "Update General Rejection",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare General Inquiry Review Record": {
+      "main": [
+        [
+          {
+            "node": "Save General Inquiry",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Sales Approval": {
+      "main": [
+        [
+          {
+            "node": "Prepare Sales Approved Update",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Sales Rejected Update",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Sales Approved Update": {
+      "main": [
+        [
+          {
+            "node": "Update Sales Approval",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Sales Rejected Update": {
+      "main": [
+        [
+          {
+            "node": "Update Sales Rejection",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Assign Inquiry ID": {
+      "main": [
+        [
+          {
+            "node": "Text Classifier",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Sales Approval": {
+      "main": [
+        [
+          {
+            "node": "Send Approved Sales Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Approved Sales Email": {
+      "main": [
+        [
+          {
+            "node": "Prepare Sales Delivery Update",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Sales Delivery Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Sales Delivery Update": {
+      "main": [
+        [
+          {
+            "node": "Update Sales Delivery",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Support Approval": {
+      "main": [
+        [
+          {
+            "node": "Send Approved Technical Support Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Approved Technical Support Email": {
+      "main": [
+        [
+          {
+            "node": "Prepare Support Delivery Update",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Support Delivery Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Support Delivery Update": {
+      "main": [
+        [
+          {
+            "node": "Update Support Delivery",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update General Approval": {
+      "main": [
+        [
+          {
+            "node": "Send Approved General Inquiry Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Approved General Inquiry Email": {
+      "main": [
+        [
+          {
+            "node": "Prepare General Delivery Update",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare General Delivery Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare General Delivery Update": {
+      "main": [
+        [
+          {
+            "node": "Update General Delivery",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Technical Support": {
+      "main": [
+        [
+          {
+            "node": "Request Technical Support Draft Approval",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Request Technical Support Draft Approval": {
+      "main": [
+        [
+          {
+            "node": "Check Technical Support Approval",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Sales Delivery Failure": {
+      "main": [
+        [
+          {
+            "node": "Update Sales Delivery Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Support Delivery Failure": {
+      "main": [
+        [
+          {
+            "node": "Update Support Delivery Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare General Delivery Failure": {
+      "main": [
+        [
+          {
+            "node": "Update General Delivery Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "nodeGroups": [],
+  "tags": []
+}

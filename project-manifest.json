@@ -1,0 +1,18 @@
+{
+  "project": "AI-Powered Business Inquiry Automation",
+  "files": [
+    ".gitignore",
+    "README.md",
+    "SECURITY.md",
+    "docs/approval-email.png",
+    "docs/architecture.md",
+    "docs/classifier-result.png",
+    "docs/implementation-notes.md",
+    "docs/inquiry-tracker.png",
+    "docs/portfolio-wording.md",
+    "docs/setup-guide.md",
+    "docs/workflow-overview.png",
+    "samples/test-cases.md",
+    "workflow/ai_business_inquiry_automation.json"
+  ]
+}
