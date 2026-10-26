@@ -4,7 +4,7 @@ An end-to-end **AI-assisted customer inquiry workflow** built with **n8n, Google
 
 The system captures incoming inquiries, assigns a unique inquiry ID, uses Gemini to classify business intent, generates a category-specific response draft, stores the record, requests human approval, sends only approved responses, and records delivery success or failure.
 
-> **Portfolio project:** All customer examples in this repository are fictional. The public workflow export is sanitized and contains no production credentials, API keys, private spreadsheet IDs, or real customer records.
+> **Note:** All customer examples in this repository are fictional. The public workflow export is sanitized and contains no production credentials, API keys, private spreadsheet IDs, or real customer records.
 
 ## Demo
 
